@@ -1,0 +1,4 @@
+#define FARM_WIDTH 106
+#define FARM_HEIGHT 20
+
+#define MAX_CROP_TYPES 3
