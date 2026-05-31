@@ -19,8 +19,8 @@ void initGame()
 {
     memset(&game, 0, sizeof(GameState));
 
-    game.player.pos.x = 1;
-    game.player.pos.y = 1;
+    game.player.pos.x = FARM_START_X + FARM_WIDTH / 2;
+    game.player.pos.y = FARM_START_Y + FARM_HEIGHT / 2;
 
     game.money = 100;
     game.tick = 0;

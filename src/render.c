@@ -21,12 +21,9 @@ void drawHUD(GameState *game, int x, int y)
     printf("Money : %-5d", game->money);
 
     gotoXY(x, y + 2);
-    printf("Tick  : %-5d", game->tick);
-
-    gotoXY(x, y + 3);
     printf("Screen: %-10s",
            (game->currentScreen == SCREEN_FARM) ? "FARM" : "SHOP");
-    gotoXY(x, y + 4);
+    gotoXY(x, y + 3);
     printf("Selected: %s",
            game->selectedCropType == RICE ? "Rice" : game->selectedCropType == WHEAT ? "Wheat" : game->selectedCropType == CORN ? "Corn" : "None");
 }
