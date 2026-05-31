@@ -54,16 +54,16 @@ static void movePlayer(GameState *game, int dx, int dy)
     game->player.pos.y = newY;
 }
 
-static int getFirstAvailableSeedType(GameState *game)
-{
-    for (int i = 0; i < MAX_CROP_TYPES; i++)
-    {
-        if (game->inventory.seeds[i] > 0)
-            return i;
-    }
+// static int getFirstAvailableSeedType(GameState *game)
+// {
+//     for (int i = 0; i < MAX_CROP_TYPES; i++)
+//     {
+//         if (game->inventory.seeds[i] > 0)
+//             return i;
+//     }
 
-    return -1;
-}
+//     return -1;
+// }
 
 void processInput(GameState *game, char key)
 {
@@ -98,11 +98,17 @@ void processInput(GameState *game, char key)
 
         case 'P':
         {
-            int cropType = getFirstAvailableSeedType(game);
+            int cropType = game->selectedCropType;
 
-            if (cropType == -1)
+            if (cropType < 0 || cropType >= MAX_CROP_TYPES)
             {
-                strcpy(game->message, "No seeds available.");
+                strcpy(game->message, "Invalid crop selected.");
+                break;
+            }
+
+            if (game->inventory.seeds[cropType] <= 0)
+            {
+                strcpy(game->message, "No selected seeds available.");
                 break;
             }
 
@@ -125,6 +131,21 @@ void processInput(GameState *game, char key)
             shutdownGame();
             break;
 
+        case '1':
+            game->selectedCropType = RICE;
+            strcpy(game->message, "Rice selected.");
+            break;
+
+        case '2':
+            game->selectedCropType = WHEAT;
+            strcpy(game->message, "Wheat selected.");
+            break;
+
+        case '3':
+            game->selectedCropType = CORN;
+            strcpy(game->message, "Corn selected.");
+            break;
+
         default:
             break;
         }
@@ -143,7 +164,6 @@ void processInput(GameState *game, char key)
 
             scanf(" %c %d %d", &mode, &option, &qty);
             printf("\033[?25l");
-
 
             mode = toupper(mode);
 

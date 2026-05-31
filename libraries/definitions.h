@@ -54,6 +54,7 @@ typedef struct GameState
     int money;
     int tick;
     int currentScreen;
+    int selectedCropType;
     char message[100];
 } GameState;
 

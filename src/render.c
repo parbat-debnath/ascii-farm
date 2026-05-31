@@ -26,6 +26,9 @@ void drawHUD(GameState *game, int x, int y)
     gotoXY(x, y + 3);
     printf("Screen: %-10s",
            (game->currentScreen == SCREEN_FARM) ? "FARM" : "SHOP");
+    gotoXY(x, y + 4);
+    printf("Selected: %s",
+           game->selectedCropType == RICE ? "Rice" : game->selectedCropType == WHEAT ? "Wheat" : game->selectedCropType == CORN ? "Corn" : "None");
 }
 
 void drawMessage(GameState *game, int x, int y)
@@ -69,7 +72,7 @@ void drawBorder()
 void drawInventory(GameState *game, int x, int y)
 {
     int line = y;
-    const char *cropNames[MAX_CROP_TYPES] = { "Rice", "Wheat", "Corn" };
+    const char *cropNames[MAX_CROP_TYPES] = {"Rice", "Wheat", "Corn"};
 
     gotoXY(x, line++);
     printf("Inventory");

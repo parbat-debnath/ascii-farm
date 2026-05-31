@@ -26,6 +26,7 @@ void initGame()
     game.currentScreen = SCREEN_FARM;
     strcpy(game.message, "Welcome to ASCIIFarm!");
 
+    game.selectedCropType = RICE;
     initFarm(&game.farm);
 
     bannerGraphics = loadGraphics("farm.txt");
