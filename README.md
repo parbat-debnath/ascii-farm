@@ -22,10 +22,10 @@ Players can plant seeds and hervest crops once they have fully-grown.
 
 ## Screenshots
 
-![Game opening screen][screenshots/1.png]
-![Market][screenshots/2.png]
-![Gameplay][screenshots/3.png]
-![Transactions][screenshots/1.png]
+![Game opening screen](screenshots/1.png)
+![Market](screenshots/2.png)
+![Gameplay](screenshots/3.png)
+![Transactions](screenshots/1.png)
 
 ---
 
