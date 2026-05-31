@@ -21,11 +21,26 @@ Players can plant seeds and hervest crops once they have fully-grown.
 ---
 
 ## Screenshots
-
-![Game opening screen](screenshots/1.png)
-![Market](screenshots/2.png)
-![Gameplay](screenshots/3.png)
-![Transactions](screenshots/1.png)
+<p align="center">
+    <img src="screenshots/1.png" width="800">
+    <br>
+    <sup>Game Opening Screen</sup>
+</p>
+<p align="center">
+    <img src="screenshots/2.png" width="800">
+    <br>
+    <sup>Market</sup>
+</p>
+<p align="center">
+    <img src="screenshots/1.png" width="800">
+    <br>
+    <sup>Gameplay</sup>
+</p>
+<p align="center">
+    <img src="screenshots/1.png" width="800">
+    <br>
+    <sup>Transactions</sup>
+</p>
 
 ---
 
