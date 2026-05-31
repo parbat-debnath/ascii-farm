@@ -1,6 +1,9 @@
 #include <stdbool.h>
 #include "constants.h"
 
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
+
 typedef struct Position
 {
     int x, y;
@@ -73,3 +76,5 @@ typedef enum
     WHEAT,
     CORN
 } CropID;
+
+#endif

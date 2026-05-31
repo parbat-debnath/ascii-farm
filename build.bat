@@ -2,4 +2,4 @@
 
 gcc src/*.c -o ASCIIFarm.exe
 
-start /max cmd /k ASCIIFarm.exe
+start /max cmd /c ASCIIFarm.exe

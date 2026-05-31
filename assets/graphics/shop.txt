@@ -1,0 +1,27 @@
+                                                                            
+                                                                            
+                                                                            
+         +---------+                             +-----------+              
+         |   BUY   |            MARKET           |   SELL    |              
+         +---------+                             +-----------+              
+                                                                            
+    ITEMS                  PRICE   |    ITEMS                      PRICE    
+                                   |                                        
+    1. 10x Rice  Seed       50 $   |    4. Rice                     10 $    
+                                   |                                        
+    2. 10x Wheat Seed       10 $   |    5. Wheat                     2 $    
+                                   |                                        
+    3. 10x Corn Seed        25 $   |    6. Corn                      5 $    
+                                   |                                        
+                                   |                                        
+                                                                            
+    Enter transaction code (Example : B 1 5) ~                              
+                                                                            
+   +-------------------------------------------------------------------+    
+   |                                                        /  TIPS    |
+   |                                                       ''''''''''''|    
+   |      >   Press C to enter Transaction Code.                       |    
+   |      >   B = BUY, S = SELL                                        |    
+   |      >   Code structure : B/S Option Qty.                         |     
+   |                                                                   |
+   +-------------------------------------------------------------------+

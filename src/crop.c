@@ -1,27 +1,73 @@
 #include "../libraries/definitions.h"
-#include <stdbool.h>
+#include "./crop.h"
+# include <stdio.h>
 
-void initCropDatabase()
+static const CropType cropDatabase[MAX_CROP_TYPES] =
 {
+    { "Rice",  { '+', '*', '#' }, 10, 50, 10 },
+    { "Wheat", { '.', ':', '%' }, 15, 10, 2  },
+    { "Corn",  { ',', ';', '@' }, 20, 25, 5  }
+};
 
+void initCropDatabase(void)
+{
+    /* Static database: nothing to initialize. */
 }
 
-CropType *getCropType()
+const CropType *getCropType(int cropType)
 {
+    if (cropType < 0 || cropType >= MAX_CROP_TYPES)
+        return NULL;
 
+    return &cropDatabase[cropType];
 }
 
-void updateCrop(CropTile *crop)
+void updateCrop(CropTile *crop, int currentTick)
 {
+    if (!crop || !crop->occupied)
+        return;
 
+    const CropType *type = getCropType(crop->cropTile);
+    if (!type)
+        return;
+
+    int age = currentTick - crop->plantedTick;
+    if (age < 0)
+        age = 0;
+
+    int stage = age / type->growthTime;
+
+    if (stage < 0)
+        stage = 0;
+    if (stage > 2)
+        stage = 2;
+
+    crop->growthStage = stage;
 }
 
-char getCropSymbol(CropTile *crop)
+char getCropSymbol(const CropTile *crop)
 {
+    if (!crop || !crop->occupied)
+        return ' ';
 
+    const CropType *type = getCropType(crop->cropTile);
+    if (!type)
+        return '?';
+
+    int stage = crop->growthStage;
+
+    if (stage < 0)
+        stage = 0;
+    if (stage > 2)
+        stage = 2;
+
+    return type->stages[stage];
 }
 
-bool isCropMature(CropTile *crop)
+bool isCropMature(const CropTile *crop)
 {
-    
+    if (!crop || !crop->occupied)
+        return false;
+
+    return crop->growthStage >= 2;
 }

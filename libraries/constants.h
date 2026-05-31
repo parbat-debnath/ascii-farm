@@ -2,3 +2,5 @@
 #define FARM_HEIGHT 20
 
 #define MAX_CROP_TYPES 3
+#define FARM_START_X 8
+#define FARM_START_Y 15
