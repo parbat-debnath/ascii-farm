@@ -76,7 +76,7 @@ Players can plant seeds and hervest crops once they have fully-grown.
 1. Download .zip file from release
 2. Decompress the .zip file
 3. Open the newly created folder
-4. Double click on ASCIIFarm.exe
+4. Double click on ASCIIFarm-v0.1.0
 5. Game is ready to play.
 
 ---
