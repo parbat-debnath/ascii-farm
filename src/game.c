@@ -1,5 +1,6 @@
 #include "../libraries/definitions.h"
 #include "../libraries/constants.h"
+#include "./audio.h"
 #include "./game.h"
 #include "./render.h"
 #include "./farm.h"
@@ -33,6 +34,10 @@ void initGame()
     playerGraphics = loadGraphics("player.txt");
 
     hideCursor();
+
+    initAudio();
+    playMusic();
+    printf("Audio initialized\n");
 
     loadGame(&game);
 }
@@ -96,6 +101,7 @@ void shutdownGame()
 
     freeGraphics(&bannerGraphics);
     freeGraphics(&playerGraphics);
+    shutdownAudio();
 
     exit(0);
 }

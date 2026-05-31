@@ -1,4 +1,5 @@
 #include "../libraries/definitions.h"
+#include "./audio.h"
 #include "./shop.h"
 #include "./game.h"
 #include "./render.h"
@@ -19,7 +20,7 @@ void enterShop()
 
 void updateShop(GameState *game)
 {
-    
+
 }
 
 int getSeedPrice(int cropType)
@@ -76,42 +77,45 @@ void buySeed(int cropType, int qty)
     game->money -= price;
     game->inventory.seeds[cropType] += 10 * qty;
 
+    playBuySfx();
+    
     snprintf(game->message, sizeof(game->message), "%dx seeds bought.", 10 * qty);
 }
 
 void sellCrop(int cropType, int qty)
 {
-
+    
     GameState *game = getGameState();
-
+    
     if (!game)
-        return;
-
+    return;
+    
     if (qty <= 0)
     {
         strcpy(game->message, "Invalid quantity.");
         return;
     }
-
+    
     int price = getCropPrice(cropType) * qty;
-
+    
     if (price < 0)
-        return;
-
+    return;
+    
     if (cropType < 0 || cropType >= MAX_CROP_TYPES)
     {
         strcpy(game->message, "Invalid crop type");
         return;
     }
-
+    
     if (game->inventory.crops[cropType] < qty)
     {
         strcpy(game->message, "Insufficient quantity for selling.");
         return;
     }
-
+    
     game->inventory.crops[cropType] -= qty;
     game->money += price;
-
+    
+    playBuySfx();
     snprintf(game->message, sizeof(game->message), "%dx crop sold", qty);
 }
